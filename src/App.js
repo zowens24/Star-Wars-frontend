@@ -5,9 +5,9 @@ import DashboardPage from './pages/DashboardPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
-import {Route, Switch, withRouter} from 'react-router-dom';
+import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import {useState} from 'react';
-import {getUser} from './services/userService';
+import {getUser, logout} from './services/userService';
 // import switch and route
 
 
@@ -27,16 +27,33 @@ setUserState({ user: getUser() });
 props.history.push('/dashboard');
 }
 
+function handleLogout() {
+  logout(); // this removes the token from localStorage
+  setUserState({user:null});
+  props.history.push('/');
+}
+// however, inside of userService you need to import the removeToken function from tokenService
+// define a logout helper function called handleLogout
+// import logout from userService
+// call the logout function defined in userService from handleLogout 
+// set userState.user to null
+// programatically navigate the user to the homepage
+
+
+
   return (
     <div className="App">
-     <Header />
+     <Header user={userState.user} handleLogout={handleLogout} />
      <Switch>
-     {/* // inside switch you need a route for each page  */}
+     {/*  inside switch you need a route for each page  */}
        <Route exact path='/' render={(props) =>
        <HomePage />
        } />
        <Route exact path='/dashboard' render={(props) =>
+       getUser() ?
        <DashboardPage />
+       :
+       <Redirect to="/login"/>
        } />
       <Route exact path='/login' render={(props) =>
        <LoginPage handleSignupOrLogin={handleSignupOrLogin} />
