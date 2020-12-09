@@ -26,6 +26,7 @@ event.preventDefault();
 if(!formValid()) return;
 try{
     await signup(formState);
+    props.handleSignupOrLogin();
     // calling a helper function defined in App.js to add the user to state 
 } catch (error) {
     alert(error.message);

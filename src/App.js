@@ -5,11 +5,28 @@ import DashboardPage from './pages/DashboardPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, withRouter} from 'react-router-dom';
+import {useState} from 'react';
+import {getUser} from './services/userService';
 // import switch and route
 
 
-function App() {
+function App(props) {
+
+/* component state */
+const [ userState, setUserState] = useState({
+  user: getUser()
+});
+
+/* helper functions */
+
+function handleSignupOrLogin() {
+// place user into state using the setter function
+setUserState({ user: getUser() });
+// programmatically route user to the dashboard
+props.history.push('/dashboard');
+}
+
   return (
     <div className="App">
      <Header />
@@ -22,10 +39,10 @@ function App() {
        <DashboardPage />
        } />
       <Route exact path='/login' render={(props) =>
-       <LoginPage />
+       <LoginPage handleSignupOrLogin={handleSignupOrLogin} />
        } />
      <Route exact path='/signup' render={(props) =>
-        <SignupPage />
+        <SignupPage handleSignupOrLogin={handleSignupOrLogin} />
        } />
     
    </Switch>
@@ -34,4 +51,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
