@@ -5,7 +5,7 @@ const Header = (props) => {
     return (
         
             <header className="Header">
-                <Link to="/"><h1>Project 3</h1></Link>
+                <Link to="/"><h1>Star Wars</h1></Link>
                 <nav>
                     <ul className="NavLinks">
                         {
