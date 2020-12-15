@@ -1,6 +1,6 @@
 # Project 3 - Star Wars
 
-Third dev project! A simple app that used a third party api in order to delve into the exciting world of star wars. Learn more about the characters, starships, planets etc. 
+Third dev project! A simple app that uses a third party api in order to delve into the exciting world of star wars. Learn more about the characters, starships, planets etc. 
 
 ## Technologies Used
 - React
