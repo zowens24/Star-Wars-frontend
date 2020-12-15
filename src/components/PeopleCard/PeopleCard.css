@@ -1,0 +1,10 @@
+.peoplecard {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    border: 1px solid black;
+    align-items: center;
+    margin: 10px;
+    border-radius: 10px;
+    
+}
