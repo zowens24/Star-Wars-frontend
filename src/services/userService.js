@@ -1,6 +1,6 @@
 import { getUserFromToken, setToken, removeToken } from "./tokenService";
 
-const BASE_URL='https://project-3-backend-2.herokuapp.com/api/users';
+const BASE_URL='https://project-3-backend-2.herokuapp.com';
 
 function signup(user) {
 return fetch(BASE_URL + '/signup', {
