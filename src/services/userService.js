@@ -1,12 +1,13 @@
 import { getUserFromToken, setToken, removeToken } from "./tokenService";
 
-const BASE_URL='https://project-3-backend-2.herokuapp.com';
+const BASE_URL= 'https://backend-star-wars.herokuapp.com/api/users/';
 
 function signup(user) {
-return fetch(BASE_URL + '/signup', {
+return fetch(BASE_URL + 'signup/', {
     method: 'POST',
     headers: {
-        'Content-Type': 'Application/json'
+        'Content-Type': 'Application/json',
+        
     },
     body: JSON.stringify(user)
 }).then(response => {
@@ -16,7 +17,7 @@ return fetch(BASE_URL + '/signup', {
 }
 
 function login(credentials) {
-    return fetch(BASE_URL + '/login', {
+    return fetch(BASE_URL + 'login/', {
         method: 'POST',
         headers: {
             'Content-Type': 'Application/json'

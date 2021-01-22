@@ -16,7 +16,7 @@ https://zoowens382936.invisionapp.com/freehand/Project-3-LljUZttfO
 
 ### Getting Started:
 Trello Board - https://trello.com/b/AnUfnar4/project-3
-Deploy Here - https://sw-project-3-frontend.netlify.app
+Deploy Here - https://star-wars-frontend.netlify.app
 
 ### Future Enhancements: 
 - more styling
